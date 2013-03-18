@@ -1,0 +1,54 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<title>2.CompareCharArrays</title>
+	<link href="styles/js-console.css" rel="stylesheet" />
+</head>
+<body>
+	<div id="js-console"></div>
+	<script src="scripts/js-console.js"></script>
+	<script>			
+	    //Write a script that compares two char arrays lexicographically (letter by letter).
+
+	    var firstArray = ['k', 'z', 'd', 'm', 'a', 'n'];
+	    var secondArray = ['k', 'l', 'q', 'a', 'b', 'z', 'b'];
+	    
+	    var equal = true;
+	    var length = Math.min(firstArray.length, secondArray.length);
+
+	    Compare2CharArrays(firstArray, secondArray);
+
+	    function Compare2CharArrays(arrayOne, arrayTwo) {
+	        for (var i = 0; i < length; i++) {
+                //check if the chars at the current position are equal and if not which is earlier (smaller)
+	            if (firstArray[i] != secondArray[i]) {                    
+	                if (firstArray[i] < secondArray[i]) {
+	                    jsConsole.writeLine("The first array is lexicographically earlier!");
+	                }
+	                else {
+	                    jsConsole.writeLine("The second array is lexicographically earlier!");
+	                }
+                    //if they are not equal there is no need for the loop to continue
+	                equal = false;
+	                break;
+	            }
+	        }
+	        //in case all the compared chars are equal, check for the size of the two arrays
+	        if (equal) {
+	            if (firstArray.length == secondArray.length) {
+	                jsConsole.writeLine("The two arrays are the same!");
+	            }
+	            else {
+	                if (firstArray.length < secondArray.length) {
+	                    jsConsole.writeLine("The first array is lexicographically earlier because it's shorter!");
+	                }
+	                else {
+	                    jsConsole.writeLine("The second array is lexicographically earlier because it's shorter!");
+	                }
+	            }
+	        }
+	       
+	    }
+	</script>
+</body>
+</html>

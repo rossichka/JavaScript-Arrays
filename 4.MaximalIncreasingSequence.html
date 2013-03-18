@@ -1,0 +1,59 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<title>4.MaximalIncreasingSequence</title>
+	<link href="styles/js-console.css" rel="stylesheet" />
+</head>
+<body>
+	<div id="js-console"></div>
+	<script src="scripts/js-console.js"></script>
+	<script>			
+	    //Write a script that finds the maximal increasing sequence in an array. 
+	    //Example: {3, 2, 3, 4, 2, 2, 4} --> {2, 3, 4}.
+
+	    var arr = [3, 2, 3, 4, 2, 2, 4];
+
+	    MaximalIncreasingSequence(arr);
+
+	    function MaximalIncreasingSequence(array) {
+	        var firstElement = 1;
+	        var maxLength = 0;
+	        var endIndex = 0;
+
+            //check for increasing neighbour elements and counts their total number, else saves the current result
+	        for (var index = 0; index < array.length; index++) {
+                if (array[index] < array[index + 1]) {
+                    firstElement++;
+                }
+                else {
+                    if (firstElement > maxLength) {
+                        maxLength = firstElement;
+                        endIndex = index;
+                    }
+                    else {
+                        firstElement = 1;
+                    }                   
+                }
+            }
+
+            //establishes the maximal sequence of increasing elements
+            if (firstElement > maxLength) {
+                maxLength = firstElement;
+                endIndex = array.Length - 1;
+            }
+            else {
+                firstElement = 1;
+            }
+
+            jsConsole.writeLine("The maximal sequence of increasing elements is:");
+            for (var i = endIndex - maxLength + 1; i < endIndex + 1; i++) {
+                jsConsole.write(array[i]);
+                while (i<endIndex) {
+                    jsConsole.write(", ");
+                    break;
+                }
+            }
+	    }
+	</script>
+</body>
+</html>

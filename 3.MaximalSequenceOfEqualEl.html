@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<title>3.MaximalSequenceOfEqualEl</title>
+	<link href="styles/js-console.css" rel="stylesheet" />
+</head>
+<body>
+	<div id="js-console"></div>
+	<script src="scripts/js-console.js"></script>
+	<script>			
+	    //Write a script that finds the maximal sequence of equal elements in an array.
+	    //Example: {2, 1, 1, 2, 3, 3, 2, 2, 2, 1} --> {2, 2, 2}.
+
+	    var arr = [2, 1, 1, 2, 3, 3, 2, 2, 2, 1];
+	    
+	    MaximalEqualSequence(arr);
+
+	    function MaximalEqualSequence(array) {
+	        var maxLength = 1;
+	        var maxIndex = 0;
+
+	        for (var index = 1, currentLength = 1; index < array.length; index++) {
+                //if the two neighbour elements are equal then the current lenght of the equal sequence is expanded by 1
+	            currentLength = ((array[index - 1] == array[index]) ? (currentLength + 1) : (1));
+
+	            if (currentLength > maxLength) {
+	                maxLength = currentLength;
+	                maxIndex = index - currentLength + 1;
+	            }
+	        }
+
+	        jsConsole.writeLine("The maximal sequence of equal elements in this array is:");
+	        for (var i = 0; i < maxLength; i++) {
+	            jsConsole.write(array[maxIndex + i]);
+
+	            while (i < (maxLength - 1)) {
+	                jsConsole.write(", ");
+	                break;
+	            }
+	        }
+	    }
+	</script>
+</body>
+</html>

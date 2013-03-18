@@ -1,0 +1,27 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<title>5.ArraySortAlgorithm</title>
+	<link href="styles/js-console.css" rel="stylesheet" />
+</head>
+<body>
+	<div id="js-console"></div>
+	<script src="scripts/js-console.js"></script>
+	<script>			
+	    //Sorting an array means to arrange its elements in increasing order.
+	    //Write a script to sort an array. Use the "selection sort" algorithm.
+
+	    var arr = [-9, 9, -1, 6, 2, -7, 4, -1, 6, 5, 8, -8];
+
+	    jsConsole.writeLine("Original array: " + arr.join(", "));
+	    jsConsole.writeLine("Sorted array:   " + arr.sort(sortByBigger).join(", "));
+
+	    //The compare function defines sort rules:
+	    //Return negative or 0 to leave the elements
+	    //Return positive to swap them
+	    function sortByBigger(a, b) {
+	        return (a == b) ? 0 : (a > b) ? 1 : -1
+	    }
+	</script>
+</body>
+</html>

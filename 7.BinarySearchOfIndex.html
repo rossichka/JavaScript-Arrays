@@ -1,0 +1,46 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<title>6.MostFrequentNumber</title>
+	<link href="styles/js-console.css" rel="stylesheet" />
+</head>
+<body>
+	<div id="js-console"></div>
+	<script src="scripts/js-console.js"></script>
+	<script>			
+	    //Write a program that finds the index of given element in a sorted array 
+	    //of integers by using the binary search algorithm.
+
+	    var arr = [487, 3, 31, 4, 2, 5, 1, 8, 21, 13, 180];
+	    var searchedElement = 4;
+
+	    BinarySearch(arr, searchedElement);
+
+        jsConsole.writeLine("The index of the element found through binary search is: " + searchedElement)
+	    
+	    function BinarySearch(array, key) {
+	        array.sort();
+	        var max = array.length - 1;
+	        var min = 0;
+
+	        while (max >= min)
+	        {
+	            var middle = (min + max) / 2;
+	            if (array[middle] < key)
+	            {
+	                min = middle + 1;
+	            }
+	            else if (array[middle] > key)
+	            {
+	                max = middle - 1;
+	            }
+	            else
+	            {
+	                return middle;
+	            }
+	        }
+	        return -1;
+	    }
+	</script>
+</body>
+</html>

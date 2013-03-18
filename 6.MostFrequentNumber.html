@@ -1,0 +1,42 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<title>6.MostFrequentNumber</title>
+	<link href="styles/js-console.css" rel="stylesheet" />
+</head>
+<body>
+	<div id="js-console"></div>
+	<script src="scripts/js-console.js"></script>
+	<script>			
+	    //Write a program that finds the most frequent number in an array. 
+	    //Example: {4, 1, 1, 4, 2, 3, 4, 4, 1, 2, 4, 9, 3} --> 4 (5 times)
+
+	    var arr = [4, 1, 1, 4, 2, 3, 4, 4, 1, 2, 4, 9, 3];
+	    var bestElement = 0;
+	    var tempElement = 0;
+	    var frequentElement = 0;
+	    var bestFrequency = 0;
+	    var tempFrequency = 1;
+
+        //pass over each element in the array and checks if it appears again and if so it counts the appearances
+	    for (var item in arr) {
+	        tempElement = arr[item];
+
+	        for (var i = 1; i < arr.length; i++) {
+	            if (tempElement == arr[i]) {
+	                frequentElement = tempElement;
+	                tempFrequency++;
+
+	                if (tempFrequency > bestFrequency) {
+	                    bestFrequency = tempFrequency;
+	                    bestElement = tempElement;
+	                }
+	            }
+	        }
+	        tempFrequency = 0;
+	    }
+
+	    jsConsole.writeLine("The number " + bestElement + " appears in the array " + bestFrequency + " times.");
+	</script>
+</body>
+</html>
